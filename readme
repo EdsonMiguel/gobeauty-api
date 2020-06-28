@@ -1,0 +1,24 @@
+# Node + MySQL
+
+## Instalação
+
+Ter instlado
+
+* NodeJS
+* NPM || Yarn
+* Insomnia
+* MySQL
+
+É nescessário configurar no arquivo .env, as variaveis de ambiente de seu DB.
+Feito iddo, instale as dependencias utilizando:
+`npm install`
+Inice o Servidor:
+`npm start`
+
+## Lib's utilizadas
+
+`express` = Responsavel por Criar a API REST
+`mysql`  =Responsavel por realizar a conexão com o banco
+`Babel` = Utilizar a nova Syntax do JavaScript
+`Body-Parser` = Responsavel por conseguir capturar o corpo da requisão
+`CORS` = Configurar o CORS da Aplica
