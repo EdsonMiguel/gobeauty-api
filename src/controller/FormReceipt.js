@@ -16,8 +16,8 @@ export default {
     );
   },
   add(req, res) {
-    const description = req.body.description.substring(0,150)
-    const status = req.body.status.substring(0,2)
+    const description = req.body.description.substring(0, 150);
+    const status = req.body.status.substring(0, 2);
     execSQLQuery(
       `INSERT INTO formReceipt(description, status) VALUES('${description}','${status}')`,
       res
@@ -25,8 +25,8 @@ export default {
   },
   update(req, res) {
     const id = parseInt(req.params.id);
-    const description = req.body.description.substring(0,150)
-    const status = req.body.status.substring(0,2)
+    const description = req.body.description.substring(0, 150);
+    const status = req.body.status.substring(0, 2);
     execSQLQuery(
       `UPDATE formReceipt SET description='${description}', status='${status}' WHERE ID=${id}`,
       res

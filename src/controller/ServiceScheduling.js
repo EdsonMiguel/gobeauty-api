@@ -2,33 +2,39 @@ import execSQLQuery from "../config/query";
 
 export default {
   index(req, res) {
-    execSQLQuery("SELECT * FROM formReceipt", res);
+    execSQLQuery("SELECT * FROM serviceScheduling", res);
   },
   show(req, res) {
     let filter = "";
     if (req.params.id) filter = " WHERE ID=" + parseInt(req.params.id);
-    execSQLQuery("SELECT * FROM formReceipt" + filter, res);
+    execSQLQuery("SELECT * FROM serviceScheduling" + filter, res);
   },
   destroy(req, res) {
     execSQLQuery(
-      "DELETE FROM formReceipt WHERE ID=" + parseInt(req.params.id),
+      "DELETE FROM serviceScheduling WHERE ID=" + parseInt(req.params.id),
       res
     );
   },
   add(req, res) {
-    const description = req.body.description.substring(0,150)
-    const status = req.body.status.substring(0,2)
+    const date = req.body.date.substring(0, 10);
+    const serviceId = parseInt(req.body.serviceId.substring(0, 10));
+    const userId = parseInt(req.body.userId.substring(0, 10));
+    const schedulingId = parseInt(req.body.schedulingId.substring(0, 10));
     execSQLQuery(
-      `INSERT INTO formReceipt(description, status) VALUES('${description}','${status}')`,
+      `INSERT INTO serviceScheduling(date, serviceId, userId, schedulingId) 
+      VALUES('${date}','${serviceId}','${userId}','${schedulingId}')`,
       res
     );
   },
   update(req, res) {
     const id = parseInt(req.params.id);
-    const description = req.body.description.substring(0,150)
-    const status = req.body.status.substring(0,2)
+    const date = req.body.date.substring(0, 10);
+    const serviceId = parseInt(req.body.serviceId.substring(0, 10));
+    const userId = parseInt(req.body.userId.substring(0, 10));
+    const schedulingId = parseInt(req.body.schedulingId.substring(0, 10));
     execSQLQuery(
-      `UPDATE formReceipt SET description='${description}', status='${status}' WHERE ID=${id}`,
+      `UPDATE serviceScheduling SET date='${date}', serviceId='${serviceId}', 
+      userId='${userId}', schedulingId='${schedulingId}' WHERE ID=${id}`,
       res
     );
   },

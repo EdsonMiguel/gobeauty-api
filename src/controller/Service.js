@@ -2,33 +2,35 @@ import execSQLQuery from "../config/query";
 
 export default {
   index(req, res) {
-    execSQLQuery("SELECT * FROM formReceipt", res);
+    execSQLQuery("SELECT * FROM service", res);
   },
   show(req, res) {
     let filter = "";
     if (req.params.id) filter = " WHERE ID=" + parseInt(req.params.id);
-    execSQLQuery("SELECT * FROM formReceipt" + filter, res);
+    execSQLQuery("SELECT * FROM service" + filter, res);
   },
   destroy(req, res) {
     execSQLQuery(
-      "DELETE FROM formReceipt WHERE ID=" + parseInt(req.params.id),
+      "DELETE FROM service WHERE ID=" + parseInt(req.params.id),
       res
     );
   },
   add(req, res) {
-    const description = req.body.description.substring(0,150)
-    const status = req.body.status.substring(0,2)
+    const description = req.body.description.substring(0, 200);
+    const status = req.body.status.substring(0, 1);
+    const value = req.body.value.substring(0, 200);
     execSQLQuery(
-      `INSERT INTO formReceipt(description, status) VALUES('${description}','${status}')`,
+      `INSERT INTO service(description, status, value) VALUES('${description}','${status}','${value}')`,
       res
     );
   },
   update(req, res) {
     const id = parseInt(req.params.id);
-    const description = req.body.description.substring(0,150)
-    const status = req.body.status.substring(0,2)
+    const description = req.body.description.substring(0, 200);
+    const status = req.body.status.substring(0, 1);
+    const value = req.body.value.substring(0, 10);
     execSQLQuery(
-      `UPDATE formReceipt SET description='${description}', status='${status}' WHERE ID=${id}`,
+      `UPDATE service SET description='${description}', status='${status}', value='${value}' WHERE ID=${id}`,
       res
     );
   },

@@ -44,11 +44,11 @@ routes.post("/service", service.add);
 routes.delete("/service/:id", service.destroy);
 
 //ServiceScheduling Routes
-routes.get("/servicescheduling", servicescheduling.index);
-routes.get("/servicescheduling/:id?", servicescheduling.show);
-routes.put("/servicescheduling/:id", servicescheduling.update);
-routes.post("/servicescheduling", servicescheduling.add);
-routes.delete("/servicescheduling/:id", servicescheduling.destroy);
+routes.get("/ServiceScheduling", serviceScheduling.index);
+routes.get("/servicescheduling/:id?", serviceScheduling.show);
+routes.put("/servicescheduling/:id", serviceScheduling.update);
+routes.post("/servicescheduling", serviceScheduling.add);
+routes.delete("/servicescheduling/:id", serviceScheduling.destroy);
 
 //User Routes
 routes.get("/user", user.index);
