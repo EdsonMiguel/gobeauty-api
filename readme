@@ -14,6 +14,8 @@ Feito iddo, instale as dependencias utilizando:
 `npm install`
 Inice o Servidor:
 `npm start`
+Se desejar testar com alguns dados copie o arquivo insert.sql no banco de dados que será utilizado para a sua aḉocação.
+NOTA: O BD deve estar com todas as tabelas vazias, ou seja sem nenhum registro.
 
 ## Lib's utilizadas
 

@@ -6,6 +6,7 @@ import scheduling from "../controller/Scheduling";
 import service from "../controller/Service";
 import serviceScheduling from "../controller/ServiceScheduling";
 import user from "../controller/User";
+import auth from "../controller/auth";
 const routes = express.Router();
 
 //Customer Routes
@@ -57,7 +58,6 @@ routes.put("/user/:id", user.update);
 routes.post("/user", user.add);
 routes.delete("/user/:id", user.destroy);
 
-
-
+routes.post("/auth", auth.login);
 
 export default routes;

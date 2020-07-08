@@ -2,7 +2,10 @@ import execSQLQuery from "../config/query";
 
 export default {
   index(req, res) {
-    execSQLQuery("SELECT * FROM scheduling", res);
+    execSQLQuery(
+      "select scheduling.*, customer.name from scheduling, customer where scheduling.customerId = customer.id; ",
+      res
+    );
   },
   show(req, res) {
     let filter = "";
